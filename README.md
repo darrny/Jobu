@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jobu - Job Application Tracker
 
-## Getting Started
+Jobu is a web application designed to help users organize and track their job applications efficiently. With features like categorization, progress tracking, and event logging, Jobu simplifies job hunting for users.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### User Authentication
+- Secure Gmail-based login using **Firebase Authentication**.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Job Tracking
+- Add and categorize jobs as:
+  - Full-time
+  - Internships
+  - Part-time
+  - Freelance
+- Key details for each job:
+  - Company Name
+  - Job Application Link
+  - Date Applied
+  - Current Status: `Applied`, `In Progress`, `Offered`, `Rejected`, `Accepted`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Event Tracking
+- Attach key events like:
+  - Interviews
+  - Coding Assessments
+  - Follow-ups
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Filtering & Search
+- Filter jobs by type or status for easy management.
+- Search for specific job entries.
 
-## Learn More
+### Modern UI
+- Built with **TailwindCSS** for a sleek, responsive, and orange-themed design.
 
-To learn more about Next.js, take a look at the following resources:
+### Visual Insights
+- Utilize **Recharts** for data visualization and insights into your job applications.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Simple visit the [website](https://jobu.netlify.app), log in using google, and start entering your jobs! It's that simple.
 
-## Deploy on Vercel
+## Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Frontend
+- **React / Next.js**: Framework for building a dynamic user interface.
+- **TailwindCSS**: For rapid and consistent styling.
+- **Shadcn**: For reusable and accessible component libraries.
+- **Radix UI**: For advanced UI components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Backend
+- **Firebase**: For real-time database and user authentication.
+
+## Dependencies
+
+Refer to the `package.json` file for the full list of dependencies and their versions.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Feel free to customize further or add sections as needed! 🚀
