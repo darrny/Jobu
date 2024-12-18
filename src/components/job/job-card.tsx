@@ -112,7 +112,7 @@ export function JobCard({ job, onEdit, onDelete }: JobCardProps) {
     };
 
     return (
-        <Card className="w-full hover:shadow-lg transition-shadow">
+        <Card className="w-full hover:shadow-lg transition-shadow flex flex-col">
             <CardHeader className="space-y-1">
                 <div className="flex items-center justify-between">
                     <h3 className="text-xl font-bold">{job.jobTitle}</h3>
@@ -126,10 +126,10 @@ export function JobCard({ job, onEdit, onDelete }: JobCardProps) {
                 </div>
             </CardHeader>
 
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 flex-grow">
                 <div className="flex items-center space-x-2 text-gray-500">
                     <CalendarDays className="h-4 w-4" />
-                    <span>Applied on {formatDate(job.dateApplied)}</span>
+                    <span>Applied on {format(job.dateApplied, 'MMM dd, yyyy')}</span>
                 </div>
 
                 {job.applicationLink && (
@@ -194,7 +194,7 @@ export function JobCard({ job, onEdit, onDelete }: JobCardProps) {
                         </Button>
                     </DialogTrigger>
                     <DialogContent>
-                        <DialogTitle>Add Event for {job.companyName}</DialogTitle>
+                        <DialogTitle>Add New Event</DialogTitle>
                         <EventForm
                             jobId={job.id}
                             onSubmit={handleAddEvent}
@@ -204,7 +204,8 @@ export function JobCard({ job, onEdit, onDelete }: JobCardProps) {
                 </Dialog>
             </CardContent>
 
-            <CardFooter className="justify-end space-x-2">
+
+            <CardFooter className="justify-end space-x-2 mt-auto border-t pt-4">
                 <Button variant="outline" onClick={() => onEdit(job)}>
                     Edit
                 </Button>
@@ -216,5 +217,5 @@ export function JobCard({ job, onEdit, onDelete }: JobCardProps) {
                 </Button>
             </CardFooter>
         </Card>
-    );
+    )
 }

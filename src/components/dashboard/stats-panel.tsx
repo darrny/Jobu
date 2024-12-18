@@ -25,8 +25,8 @@ export function StatsPanel({ jobs }: StatsPanelProps) {
   // Calculate basic stats
   const totalApplications = jobs.length;
   const activeApplications = jobs.filter(job => !['rejected', 'accepted'].includes(job.status)).length;
-  const acceptanceRate = totalApplications ? 
-    ((jobs.filter(job => job.status === 'accepted').length / totalApplications) * 100).toFixed(1) : 
+  const acceptanceRate = totalApplications ?
+    ((jobs.filter(job => job.status === 'accepted').length / totalApplications) * 100).toFixed(1) :
     '0';
   const responseRate = totalApplications ?
     ((jobs.filter(job => job.status !== 'applied').length / totalApplications) * 100).toFixed(1) :
@@ -116,10 +116,9 @@ export function StatsPanel({ jobs }: StatsPanelProps) {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
                 <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Bar 
-                  dataKey="value" 
+                <YAxis allowDecimals={false} />
+                <Bar
+                  dataKey="value"
                   fill="#f97316"
                   radius={[4, 4, 0, 0]}
                 />

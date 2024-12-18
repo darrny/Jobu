@@ -5,9 +5,11 @@ import { signOut } from '@/lib/firebase-auth';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { LogOut, User } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export function Header() {
   const { toast } = useToast();
+  const router = useRouter();
   const user = auth.currentUser;
 
   const handleSignOut = async () => {
@@ -17,6 +19,8 @@ export function Header() {
         title: "Signed out successfully",
         description: "Come back soon!",
       });
+      router.push('/');
+
     } catch (error) {
       toast({
         title: "Error signing out",
