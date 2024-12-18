@@ -27,18 +27,14 @@ export default function Dashboard() {
     const router = useRouter();
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((user) => {
+        const unsubscribeAuth = auth.onAuthStateChanged((user) => {
             if (!user) {
-                window.location.href = '/login';
+                router.push('/login');
             }
         });
 
-        return () => unsubscribe();
-    }, []);
-
-    if (!auth.currentUser) {
-        return null;
-    }
+        return () => unsubscribeAuth();
+    }, [router]);
 
     useEffect(() => {
         const user = auth.currentUser;
@@ -49,7 +45,7 @@ export default function Dashboard() {
             where('userId', '==', user.uid)
         );
 
-        const unsubscribe = onSnapshot(jobsQuery, (snapshot) => {
+        const unsubscribeJobs = onSnapshot(jobsQuery, (snapshot) => {
             const jobsData = snapshot.docs.map((doc) => {
                 const data = doc.data();
                 return {
@@ -72,7 +68,7 @@ export default function Dashboard() {
             setJobs(jobsData.sort((a, b) => b.dateApplied.getTime() - a.dateApplied.getTime()));
         });
 
-        return () => unsubscribe();
+        return () => unsubscribeJobs();
     }, []);
 
     const filteredJobs = jobs.filter(job => {
@@ -138,11 +134,6 @@ export default function Dashboard() {
         setTypeFilter('all');
         setStatusFilter('all');
     };
-
-    // Only render the dashboard content if we have a user
-    if (!auth.currentUser) {
-        return null;
-    }
 
     return (
         <div className="min-h-screen bg-gray-50">
