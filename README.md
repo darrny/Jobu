@@ -36,7 +36,7 @@ Jobu is a web application designed to help users organize and track their job ap
 - Utilize **Recharts** for data visualization and insights into your job applications.
 
 ## Getting Started 🚀
-- Simple visit the [website](https://jobu-jat.netlify.app), log in using google, and start entering your jobs! It's that simple.
+- Simple visit the [website](https://jobu-jat.netlify.app), log in using google, and start entering your jobs!
 
 ## Tech Stack 🛠️
 
