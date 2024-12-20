@@ -92,7 +92,7 @@ export default function Home() {
             </p>
             <ul className="list-disc pl-4 space-y-2">
               <li>
-                Open jobu-jat.netlify.app directly in your device's browser (Chrome, Safari, Firefox, etc.)
+                Open jobu-jat.netlify.app directly in your browser (Chrome, Safari, Firefox, etc.)
               </li>
               <li>
                 Avoid using in-app browsers from:
