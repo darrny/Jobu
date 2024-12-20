@@ -25,6 +25,22 @@ export default function Home() {
   const provider = new GoogleAuthProvider();
 
   useEffect(() => {
+    console.log("Warning state:", showWarning);
+  }, [showWarning]);
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    const isInAppBrowser =
+      userAgent.includes('linkedin') ||
+      userAgent.includes('telegram') ||
+      userAgent.includes('instagram') ||
+      userAgent.includes('facebook') ||
+      userAgent.includes('twitter');
+
+    setShowWarning(isInAppBrowser);
+  }, []);
+
+  useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
       setIsLoading(false);
@@ -65,15 +81,37 @@ export default function Home() {
 
   return (
     <>
-      <Dialog open={showWarning} onOpenChange={setShowWarning}>
-        <DialogContent>
-          <DialogTitle>‼️ Important Notice ‼️</DialogTitle>
-          <DialogDescription className="py-4">
-            Please run this application in your device's browser! Don't use in-app browsers like LinkedIn's integrated browser as that will cause complications with the log-in process.
+      <Dialog open={showWarning} onOpenChange={setShowWarning} modal>
+        <DialogContent className="sm:max-w-[500px]">
+          <DialogTitle className="text-xl font-semibold flex items-center gap-2">
+            Welcome to Jobu! 🌐
+          </DialogTitle>
+          <DialogDescription className="py-4 space-y-4">
+            <p>
+              For the best experience, please note:
+            </p>
+            <ul className="list-disc pl-4 space-y-2">
+              <li>
+                Open jobu-jat.netlify.app directly in your device's browser (Chrome, Safari, Firefox, etc.)
+              </li>
+              <li>
+                Avoid using in-app browsers from:
+                - LinkedIn
+                - Telegram
+                - Instagram
+                - Facebook
+              </li>
+              <li>
+                This ensures proper functionality with Google sign-in
+              </li>
+            </ul>
           </DialogDescription>
           <DialogFooter>
-            <Button onClick={() => setShowWarning(false)}>
-              Okay, got it!
+            <Button
+              onClick={() => setShowWarning(false)}
+              className="w-full bg-orange-600 hover:bg-orange-700"
+            >
+              Got it, Thanks!
             </Button>
           </DialogFooter>
         </DialogContent>
