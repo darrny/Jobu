@@ -95,11 +95,7 @@ export default function Home() {
                 Open jobu-jat.netlify.app directly in your browser (Chrome, Safari, Firefox, etc.)
               </li>
               <li>
-                Avoid using in-app browsers from:
-                - LinkedIn
-                - Telegram
-                - Instagram
-                - Facebook
+                Avoid using in-app browsers from: LinkedIn, Telegram, etc...
               </li>
               <li>
                 This ensures proper functionality with Google sign-in
