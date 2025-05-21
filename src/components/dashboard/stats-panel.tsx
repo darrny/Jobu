@@ -107,7 +107,7 @@ export function StatsPanel({ jobs }: StatsPanelProps) {
         </Card>
       </div>
 
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Applications by Type</CardTitle>
         </CardHeader>
@@ -126,7 +126,7 @@ export function StatsPanel({ jobs }: StatsPanelProps) {
             </ResponsiveContainer>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   );
 }
