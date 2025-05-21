@@ -28,7 +28,7 @@ export function JobApplicationForm({ onSubmit, initialData }: JobApplicationForm
     companyName: initialData?.companyName || '',
     jobTitle: initialData?.jobTitle || '',
     applicationLink: initialData?.applicationLink || '',
-    type: initialData?.type || 'full-time',
+    type: initialData?.type || 'internship',
     status: initialData?.status || 'applied',
   });
 
