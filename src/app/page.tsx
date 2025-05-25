@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import { signInWithPopup, GoogleAuthProvider, User } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { useToast } from '@/components/ui/use-toast';
+import { isInAppBrowser } from '@/utils/browser';
 import Dashboard from './dashboard/page';
 import WarningDialog from '@/components/homepage/WarningDialog';
 import HeroSection from '@/components/homepage/HeroSection';
 import SignInButton from '@/components/homepage/SignInButton';
 import FeatureGrid from '@/components/homepage/FeatureGrid';
+import LoadingSpinner from '@/shared/LoadingSpinner';
 
 export default function Home() {
   const [user, setUser] = useState<User | null>(null);
@@ -23,15 +25,7 @@ export default function Home() {
   }, [showWarning]);
 
   useEffect(() => {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    const isInAppBrowser =
-      userAgent.includes('linkedin') ||
-      userAgent.includes('telegram') ||
-      userAgent.includes('instagram') ||
-      userAgent.includes('facebook') ||
-      userAgent.includes('twitter');
-
-    setShowWarning(isInAppBrowser);
+    setShowWarning(isInAppBrowser());
   }, []);
 
   useEffect(() => {
@@ -65,13 +59,7 @@ export default function Home() {
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
-      </div>
-    );
-  }
+  if (isLoading) return <LoadingSpinner />;
 
   return (
     <>
@@ -87,7 +75,10 @@ export default function Home() {
           </header>
 
           <div className="container mx-auto px-4 py-12">
-            <HeroSection children={ <SignInButton isSigningIn={isSigningIn} onClick={handleLogin} /> } />
+            <HeroSection>
+              <SignInButton isSigningIn={isSigningIn} onClick={handleLogin} />
+            </HeroSection>
+
             <FeatureGrid />
           </div>
         </div>
