@@ -9,11 +9,11 @@ import { useToast } from '@/components/ui/use-toast';
 import { createJob, updateJob, deleteJob } from '@/lib/firebase-utils';
 
 import { Header } from '@/components/layout/header';
-import JobFormDialog from '@/components/dashboard/JobFormDialog';
+import JobFormDialog from '@/components/job/JobFormDialog';
 import { StatsPanel } from '@/components/dashboard/stats-panel';
 import { JobFilters } from '@/components/job/job-filters';
 import EmptyState from '@/components/dashboard/EmptyState';
-import JobList from '@/components/dashboard/JobList';
+import JobList from '@/components/job/JobList';
 
 
 export default function Dashboard() {
